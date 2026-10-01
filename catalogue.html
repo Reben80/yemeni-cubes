@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogue — Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a href="index.html">The cube</a>
+      <a class="here" href="catalogue.html">Catalogue</a>
+      <a href="twins.html">One shape</a>
+      <a href="outside.html">The outside</a>
+      <a href="apart.html">Come apart</a>
+      <a href="print.html">Print</a>
+      <a href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section>
+        <h1>The 65</h1>
+        <p class="lede">Every dissection of the 4 × 4 × 4 box. Fifty-three shapes. Twelve of them are used twice.</p>
+        <div class="filters">
+          <button type="button" data-filter="twice" aria-pressed="false">Shape used twice</button>
+          <button type="button" data-filter="printset" aria-pressed="false">One printed set builds two cubes</button>
+          <button type="button" data-filter="apart" aria-pressed="false">Comes fully apart</button>
+          <button type="button" data-filter="locked" aria-pressed="false">Interlocked</button>
+          <button type="button" data-filter="outside" aria-pressed="false">Twin from outside</button>
+          <button type="button" data-filter="flat" aria-pressed="false">A flat square extruded</button>
+          <button type="button" data-filter="two" aria-pressed="false">Opens two ways</button>
+          <button type="button" data-filter="thin" aria-pressed="false">Thin</button>
+          <button type="button" data-filter="tree" aria-pressed="false">Tree pieces</button>
+        </div>
+        <p class="shown" id="shown">Loading.</p>
+        <p class="axes-note">Thin means no 2 × 2 × 1 slab. A tree has cycle rank 0. Filters combine.</p>
+
+        <article id="detail" hidden>
+          <h2 id="detail-title"></h2>
+          <p id="detail-note" hidden></p>
+          <div class="detail">
+            <div class="stage" id="detail-stage"></div>
+            <div>
+              <div class="legend" id="legend"></div>
+              <ul class="stat-list" id="stats"></ul>
+              <div class="row-actions" id="detail-actions"></div>
+              <p><button type="button" id="close-detail">Close</button></p>
+            </div>
+          </div>
+          <h3>Layers</h3>
+          <div id="detail-layers" class="figure-block"></div>
+          <h3>The outside</h3>
+          <div class="net-scroll" id="detail-net"></div>
+        </article>
+
+        <div class="cards" id="cards"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot">
+    <p>Rebin. Colours mark the eight pieces. The camera stays put when you switch to a twin.</p>
+  </footer>
+  <script type="module" src="js/catalogue.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One shape, two cubes — Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body data-page="twins">
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a href="index.html">The cube</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a class="here" href="twins.html">One shape</a>
+      <a href="outside.html">The outside</a>
+      <a href="apart.html">Come apart</a>
+      <a href="print.html">Print</a>
+      <a href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section>
+        <h1>One shape, two cubes</h1>
+        <p class="lede">53 shapes build 65 dissections. Twelve shapes each build two cubes that no rotation of the cube carries into one another. The piece does not determine the cutting.</p>
+        <p>In the flat puzzle it does. Through order 7, no Yemeni polyomino has two inequivalent embeddings. The extra room in three dimensions breaks that.</p>
+        <p>For seven of the twelve, the two pieces are the same by a proper rotation. One set of eight printed pieces builds both cubes. For the other five, the pieces are mirrors. A printed set of one cannot build the other.</p>
+        <p>Three of the rotation pairs also come apart: #8 and #24, #25 and #44, #53 and #57. Those three can be shown with a physical set. The seams on the outside differ, so you can tell the cubes apart without taking them apart. No twin pair shares a seam pattern.</p>
+
+        <table>
+          <thead>
+            <tr><th>Pair</th><th>Relation</th><th>One printed set builds both?</th><th>Also comes apart</th></tr>
+          </thead>
+          <tbody id="pair-body"></tbody>
+        </table>
+
+        <div class="detail">
+          <div class="stage" id="stage"></div>
+          <div>
+            <h2 id="which">Dissection #25</h2>
+            <p id="meta"></p>
+            <div class="legend" id="legend"></div>
+            <div class="row-actions">
+              <button type="button" id="flip">Show the other</button>
+            </div>
+            <p class="axes-note">The camera does not reset. Watch the seams.</p>
+          </div>
+        </div>
+        <h3>Layers</h3>
+        <div id="layers" class="figure-block"></div>
+        <h3>The outside</h3>
+        <div class="net-scroll" id="net"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot"><p>Rebin. Click a row to hold that pair.</p></footer>
+  <script type="module" src="js/compare.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a class="here" href="index.html">The cube</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="twins.html">One shape</a>
+      <a href="outside.html">The outside</a>
+      <a href="apart.html">Come apart</a>
+      <a href="print.html">Print</a>
+      <a href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="hero">
+      <div class="stage" id="stage"></div>
+      <div class="hero-copy">
+        <p class="kicker">Rebin</p>
+        <h1>A box, cut into eight</h1>
+        <p class="lede">A 4 × 4 × 4 box, cut into eight congruent pieces. The same rotation takes each piece to the next.</p>
+        <p class="count">65</p>
+        <p>There are 65 of them. This is dissection #1, coming apart.</p>
+        <div class="hero-actions">
+          <button type="button" id="pinwheel" aria-pressed="true">Pinwheel</button>
+          <button type="button" id="vertical" aria-pressed="false">Up and down</button>
+          <button type="button" id="replay">Play again</button>
+        </div>
+        <p class="stage-note" id="burst-status">Dissection #1. Two pieces to each side. Nothing up or down.</p>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="band" aria-label="The count">
+        <div><strong>65</strong><span>dissections</span></div>
+        <div><strong>53</strong><span>shapes</span></div>
+        <div><strong>38</strong><span>come apart</span></div>
+        <div><strong>27</strong><span>stay locked</span></div>
+      </div>
+
+      <section>
+        <h2>What the piece has to be</h2>
+        <p>Eight rotations of the cube permute the cells. The group acts freely: no rotation in it fixes a cell. That is what makes the eight pieces interchangeable. A piece has to meet these conditions.</p>
+        <ol class="conditions">
+          <li>exactly 8 cells</li>
+          <li>one cell from each of the 8 rotation orbits</li>
+          <li>face-connected</li>
+          <li>no sealed cavity — the complement stays connected to the outside</li>
+          <li>no solid 2 × 2 × 2 block</li>
+          <li class="optional">
+            <strong>stricter reading:</strong> no 2 × 2 × 1 slab either.
+            This one is optional. It is a filter, not a rule.
+            <div class="hero-actions">
+              <button type="button" id="strict" aria-pressed="false">Require it</button>
+            </div>
+            <p id="strict-note" hidden>34 of the 65 satisfy it. The other 31 are still Yemeni cubes. <a href="catalogue.html">The catalogue</a> can show only the thin ones.</p>
+          </li>
+          <li>never touches itself only at an edge or corner (well-composedness)</li>
+          <li>no tunnel through it (Euler characteristic = 1)</li>
+        </ol>
+        <h3>The eight orbits</h3>
+        <p>Sixty-four cells, eight orbits, eight cells in each. A piece takes one cell from each orbit. The numbers are the orbits.</p>
+        <div id="orbits" class="figure-block"></div>
+      </section>
+
+      <section>
+        <h2>Where the name comes from</h2>
+        <p>A Yemeni square is a square cut into four congruent polyominoes by a quarter turn about its centre. The name comes from a tiling pattern in Yemeni architecture. Wichmann and Rigby studied them. On a 4 × 4 square there are two: a T pinwheel and an L pinwheel. Both sit inside this cube, as a tetromino two layers thick.</p>
+        <div class="two-pics">
+          <figure>
+            <div id="pic-t"></div>
+            <figcaption>T pinwheel. One layer of dissection #1.</figcaption>
+          </figure>
+          <figure>
+            <div id="pic-l"></div>
+            <figcaption>L pinwheel. One layer of dissection #13.</figcaption>
+          </figure>
+        </div>
+        <p>In #1 the cube is two of those squares, stacked. Layers z = 0 and z = 1 match, and so do z = 2 and z = 3.</p>
+      </section>
+
+      <section>
+        <h2>From here</h2>
+        <ul class="next-links">
+          <li><a href="catalogue.html">All 65, with the layers and the seams</a></li>
+          <li><a href="twins.html">Twelve shapes each build two cubes</a></li>
+          <li><a href="outside.html">Fourteen pairs that look the same from outside</a></li>
+          <li><a href="apart.html">The pinwheel, with room around it</a></li>
+          <li><a href="print.html">Print a set</a></li>
+          <li><a href="record.html">What was computed, and what is open</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot">
+    <p>Rebin. The counts were computed and checked. The flat puzzle, and the name, are Wichmann and Rigby’s.</p>
+  </footer>
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

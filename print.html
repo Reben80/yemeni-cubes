@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Print — Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a href="index.html">The cube</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="twins.html">One shape</a>
+      <a href="outside.html">The outside</a>
+      <a href="apart.html">Come apart</a>
+      <a class="here" href="print.html">Print</a>
+      <a href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section>
+        <h1>Print it</h1>
+        <p class="lede">All of these figures are for a 20 mm cell. Everything scales with that one number.</p>
+        <div class="warn">
+          <strong>The assembled puzzle is 78.4 mm across, not 80 mm.</strong>
+          <p>Every case dimension follows from 78.4. A case drawn for 80 mm will not fit.</p>
+        </div>
+        <div class="warn">
+          <strong>Do not let the slicer auto-orient or mirror the model.</strong>
+          <p>These pieces are chiral. A mirrored piece builds the other-handed cube. The file is already in the pose that prints best. x is to the right, y away, z up.</p>
+        </div>
+
+        <h2>Fit rings first</h2>
+        <p>Print a pair of 5 mm rings before the box. One is a slice of the cavity mouth. One is a slice of the lid skirt. Fifteen minutes, and they check both fits before a five-hour print. The lid ring should slip over the cavity ring: 0.5 mm of clearance a side.</p>
+        <div class="row-actions">
+          <button type="button" class="primary" id="dl-cavity">Cavity-mouth ring</button>
+          <button type="button" class="primary" id="dl-skirt">Lid-skirt ring</button>
+        </div>
+
+        <h2>The piece</h2>
+        <p>Each cell is a cube shrunk to 0.92 of the cell and centred. Cells of different pieces end up 1.6 mm apart. That gap is the clearance. Do not reduce it.</p>
+        <p>Cells of the same piece meet at a groove 0.6 mm deep and 1.6 mm wide. The connector between them is 17.2 mm across. The body stays continuous, and the neck carries 87% of the section. An earlier groove was 2 mm deep. It left a 2 mm ledge at every vertical join and a neck of 61%. It printed badly.</p>
+        <p>The pose in the file is ranked by three things, in this order: fewest cubes with nothing underneath them, then shortest, then most cubes on the bed. Largest face down is not enough. Several pieces have a two-cube-tall pose that rests on only two cubes, with the other six in the air.</p>
+        <p>38 of the 65 print with nothing hanging. The other 27 — the interlocked ones — always leave one or two. That match is observed, not proved.</p>
+        <p>
+          <label>Piece
+            <select id="pick"></select>
+          </label>
+        </p>
+        <p id="piece-label"></p>
+        <p id="pose-line"></p>
+        <div class="stage" id="piece-stage" style="min-height: 420px"></div>
+        <div class="row-actions">
+          <button type="button" class="primary" id="dl-piece">Download piece</button>
+        </div>
+        <p>Print eight copies. PLA, 0.2 mm layers, no supports in this pose. A set is about 210 g. Eight copies fit on a 256 mm bed, for every one of the 65.</p>
+
+        <h2>Two to start with</h2>
+        <p><a href="catalogue.html#1">Dissection #1</a>, shape S18. A T-tetromino two layers thick. Surface 28, the smallest bounding box, and one of six that open two ways. It is also the flat square, extruded.</p>
+        <p><a href="twins.html">#25 and #44</a>. Eight copies of one shape build two cubes, and the seams differ, so you can see which cube you built. A rotation relates them, so one printed set really does build both.</p>
+
+        <h2>The case</h2>
+        <p>A cube-shaped case in two parts, base and lid. One case fits any of the 65. They all assemble to the same 78.4 mm cube.</p>
+        <table class="dims">
+          <thead><tr><th>Dimension</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Cavity</td><td>79.6 mm wide (0.6 mm a side), 78.8 mm deep (0.4 mm headroom)</td></tr>
+            <tr><td>Base wall</td><td>2.4 mm</td></tr>
+            <tr><td>Base floor</td><td>9.0 mm, with a 26 mm square push-out hole</td></tr>
+            <tr><td>Base outer</td><td>84.4 × 84.4 × 87.8 mm</td></tr>
+            <tr><td>Lid skirt</td><td>14 mm deep, 0.5 mm clearance a side</td></tr>
+            <tr><td>Lid</td><td>90.2 × 90.2 × 16.4 mm</td></tr>
+            <tr><td>Closed case</td><td>90.2 × 90.2 × 90.2 mm. A cube holding a cube.</td></tr>
+          </tbody>
+        </table>
+        <p>The bottom 0.8 mm of the base is stepped in by 0.6 mm, so elephant’s foot spreads into that relief instead of onto the wall the lid slides on. The cavity mouth has a 0.8 mm lead-in over its top 3 mm, so a finished cube drops in without catching.</p>
+        <p>The push-out hole is in the floor. The fit is too snug to grip. Turn the case over and push the cube up through the hole.</p>
+        <p>The case is about 85 g. In the picture the lid is lifted off so both parts can be seen. Closed, they make the 90.2 mm cube.</p>
+        <div class="stage" id="case-stage" style="min-height: 420px"></div>
+        <div class="row-actions">
+          <button type="button" id="dl-base">Download base</button>
+          <button type="button" id="dl-lid">Download lid</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot"><p>Rebin. 20 mm cells. Assembled size 78.4 mm. Do not mirror the file.</p></footer>
+  <script type="module" src="js/print.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Record — Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a href="index.html">The cube</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="twins.html">One shape</a>
+      <a href="outside.html">The outside</a>
+      <a href="apart.html">Come apart</a>
+      <a href="print.html">Print</a>
+      <a class="here" href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="narrow">
+      <section>
+        <h1>Record</h1>
+        <p class="lede">Every figure on this site was computed and checked, except the ones marked otherwise. Nothing in the three-dimensional list is offered as a theorem.</p>
+        <p>It is not known whether these cubes have been enumerated before. No literature search has been done. They sit in the general area of polycube box-packing. Clarke’s Poly Pages and Sillke’s tables are the places to look. This site does not claim priority.</p>
+
+        <h2>From Wichmann and Rigby</h2>
+        <table>
+          <thead><tr><th>Claim</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>The name, and the flat puzzle: a square cut into four congruent polyominoes by a quarter turn about the centre.</td><td><span class="tag wr">Wichmann–Rigby</span></td></tr>
+            <tr><td>On a 4 × 4 square there are two: a T pinwheel and an L pinwheel.</td><td><span class="tag wr">Wichmann–Rigby</span></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Computed</h2>
+        <table>
+          <thead><tr><th>Claim</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>At order 2 there are 65 dissections and 53 shapes. Twelve shapes are used twice.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>27 are interlocked. 38 come apart. Of those, 32 open one way and 6 open two ways.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>51 seam patterns. 14 pairs are identical from every side, and in those pairs the pieces are not congruent. No twin pair shares a seam pattern. Each piece shows 12 of the 96 surface squares.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>Seven twin pairs are related by a rotation, so one printed set builds both. Five are mirrors only. Of the seven, three also come apart: (8, 24), (25, 44), (53, 57).</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>Whenever one piece of those 38 can slide free, the cube comes apart in seven straight slides. All eight pieces can leave at once, with no two meeting. Checked along the whole travel.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>The pinwheel directions, by piece 0–7: +y, −y, +x, +x, −x, −x, +y, −y. The vertical burst: −z, +z, +z, −z, −z, +z, +z, −z.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>Two shapes are a tetromino two layers thick: #1, the T pinwheel, and #13, the L pinwheel. In #1, layers z = 0 and z = 1 match, and so do z = 2 and z = 3.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>34 of the 65 have no 2 × 2 × 1 slab.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>Surface areas 28, 30, 32, 34 occur 5, 9, 19, 32 times. Cycle ranks 0, 1, 2, 3 occur 32, 19, 9, 5 times. Bounding boxes 2×2×3, 2×2×4, 2×3×3, 2×3×4, 2×4×4 occur 8, 21, 15, 18, 3 times.</td><td><span class="tag">Computed</span></td></tr>
+            <tr><td>In the plane, through order 7, no Yemeni polyomino has two inequivalent embeddings.</td><td><span class="tag">Computed</span></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Observed</h2>
+        <table>
+          <thead><tr><th>Claim</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>The 38 that come apart are exactly the 38 whose piece can be turned so that nothing hangs. The 27 that lock are exactly the 27 that always leave one or two cubes unsupported. No exceptions among the 65.</td><td><span class="tag obs">Observed</span></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Open</h2>
+        <p>Order 3, a 6 × 6 × 6 box, has not been enumerated. It is not within reach. The search was profiled: branching around 8 per level, an estimated 10<sup>16</sup> nodes or more. There is no count for order 3.</p>
+        <p>Whether anyone has enumerated the three-dimensional objects before is not known.</p>
+
+        <h2>The distributions</h2>
+        <table>
+          <thead><tr><th>Surface area</th><th class="num">Count</th><th>Cycle rank</th><th class="num">Count</th><th>Opens along</th><th class="num">Count</th></tr></thead>
+          <tbody>
+            <tr><td>28</td><td class="num">5</td><td>0 — a tree</td><td class="num">32</td><td>nothing (locked)</td><td class="num">27</td></tr>
+            <tr><td>30</td><td class="num">9</td><td>1</td><td class="num">19</td><td>1 direction</td><td class="num">32</td></tr>
+            <tr><td>32</td><td class="num">19</td><td>2</td><td class="num">9</td><td>2 directions</td><td class="num">6</td></tr>
+            <tr><td>34</td><td class="num">32</td><td>3</td><td class="num">5</td><td></td><td class="num"></td></tr>
+          </tbody>
+        </table>
+        <p>Bounding boxes, in cells: 2×2×3 → 8, 2×2×4 → 21, 2×3×3 → 15, 2×3×4 → 18, 2×4×4 → 3.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot"><p>Rebin. No count is stated for order 3.</p></footer>
+</body>
+</html>

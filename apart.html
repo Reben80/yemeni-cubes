@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Come apart — Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a href="index.html">The cube</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="twins.html">One shape</a>
+      <a href="outside.html">The outside</a>
+      <a class="here" href="apart.html">Come apart</a>
+      <a href="print.html">Print</a>
+      <a href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section>
+        <div class="burst-layout">
+          <div class="stage" id="stage"></div>
+          <div>
+            <h1>They leave together</h1>
+            <p>27 of the 65 are interlocked. No single piece can be slid free, so they cannot be assembled from separate rigid pieces by straight motions at all.</p>
+            <p>For the other 38: whenever one piece can slide free, the whole cube comes apart. Always in seven straight slides. No exceptions.</p>
+            <p>Stronger than that. In every one of the 38, all eight pieces can leave at the same time, each along a direction it is free to take, with no two meeting. That was checked continuously along the travel, not only at whole-cell steps.</p>
+            <label>Dissection
+              <select id="pick"></select>
+            </label>
+            <div class="hero-actions">
+              <button type="button" id="pinwheel" aria-pressed="true">Pinwheel</button>
+              <button type="button" id="vertical" aria-pressed="false">Up and down</button>
+              <button type="button" id="play">Play</button>
+            </div>
+            <p id="apart-note"></p>
+            <div class="dirs" id="dirs"></div>
+          </div>
+        </div>
+        <div class="callout">
+          <p>The 38 that come apart are exactly the 38 whose piece has a way to sit with nothing hanging in the air. The 27 that are interlocked are exactly the 27 whose piece always leaves one or two cubes unsupported, however you turn it. No exceptions among the 65.</p>
+          <p><span class="tag obs">Observed</span> This is not a proof. A piece that wraps tightly enough to lock is a piece that cannot be laid down flat. That is the intuition, not a theorem.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot"><p>Rebin. The pinwheel is the cube’s quarter turn, turned into a movement.</p></footer>
+  <script type="module" src="js/apart.js"></script>
+</body>
+</html>

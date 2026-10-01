@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The outside — Yemeni cubes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body data-page="outside">
+  <header class="site-head">
+    <a class="brand" href="index.html">Yemeni cubes</a>
+    <nav class="site-nav">
+      <a href="index.html">The cube</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="twins.html">One shape</a>
+      <a class="here" href="outside.html">The outside</a>
+      <a href="apart.html">Come apart</a>
+      <a href="print.html">Print</a>
+      <a href="record.html">Record</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section>
+        <h1>The outside hides the inside</h1>
+        <p class="lede">Each piece shows 12 of the 96 squares on the finished cube. In every one of the 65.</p>
+        <p>Those 65 leave 51 seam patterns, up to the 48 symmetries of the box. Fourteen pairs are identical from every side. In all 14, the pieces are not even congruent. They differ in shape, and in most cases in surface area and cycle rank too.</p>
+        <p>No twin pair shares a seam pattern. The outside tells you apart exactly where the inside is the same, and hides you where it is not.</p>
+        <p>Two closed cubes can be built from pieces that are not the same shape, and look identical. Two cubes built from identical pieces always look different.</p>
+
+        <table>
+          <thead>
+            <tr><th>Pair</th><th>Surface</th><th>Cycle rank</th><th>Shapes</th></tr>
+          </thead>
+          <tbody id="pair-body"></tbody>
+        </table>
+
+        <div class="detail">
+          <div class="stage" id="stage"></div>
+          <div>
+            <h2 id="which">Dissection #3</h2>
+            <p id="meta"></p>
+            <div class="legend" id="legend"></div>
+            <div class="row-actions">
+              <button type="button" id="flip">Show the other</button>
+            </div>
+            <label class="slider">Draw piece 0 out
+              <input id="pull" type="range" min="0" max="1" step="0.01" value="0">
+            </label>
+            <p class="axes-note">Closed, the seams stay. Open it, and the piece changes. The numbers above change with it.</p>
+          </div>
+        </div>
+        <h3>Layers</h3>
+        <div id="layers" class="figure-block"></div>
+        <h3>The outside</h3>
+        <div class="net-scroll" id="net"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-foot"><p>Rebin. The fourteen pairs are identical from every side.</p></footer>
+  <script type="module" src="js/compare.js"></script>
+</body>
+</html>
