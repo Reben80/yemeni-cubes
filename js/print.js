@@ -1,4 +1,4 @@
-import { loadData } from "./data.js";
+import { loadData, separation } from "./data.js";
 import { auditOrientations, bestOrientation } from "./orient.js";
 import { mountSolid } from "./view.js";
 import { pieceTriangles, caseTriangles, previewPair, downloadSTL } from "./stl.js";
@@ -12,7 +12,7 @@ function poseLine(cells) {
   const pose = bestOrientation(cells);
   if (pose.unsupported === 0) return "In this file, nothing is hanging. Every cube has something underneath it.";
   const word = pose.unsupported === 1 ? "one cube has" : "two cubes have";
-  return "In this file, " + word + " nothing underneath. That is the interlocked piece. It still will not come apart.";
+  return "In this file, " + word + " nothing underneath. No single piece of this dissection slides free.";
 }
 
 function showPiece() {
@@ -59,7 +59,9 @@ loadData().then((d) => {
   for (const cube of data.cubes) {
     const opt = document.createElement("option");
     opt.value = String(cube.id);
-    opt.textContent = "#" + cube.id + " — S" + cube.shape + (cube.locked ? " — interlocked" : "");
+    const kind = separation(cube);
+    const tag = kind === "none" ? " — cannot be separated" : kind === "group" ? " — a group moves first" : "";
+    opt.textContent = "#" + cube.id + " — S" + cube.shape + tag;
     sel.append(opt);
   }
   const hash = Number(location.hash.slice(1));

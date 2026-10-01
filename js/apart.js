@@ -1,4 +1,4 @@
-import { loadData, BURST_Y, BURST_Z, PIECE_COLORS } from "./data.js";
+import { loadData, BURST_Y, BURST_Z, PIECE_COLORS, separation } from "./data.js";
 import { mountViewer } from "./view.js";
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -38,8 +38,11 @@ function syncButtons() {
   document.querySelector("#vertical").disabled = d.nfree < 2;
   document.querySelector("#play").disabled = d.locked;
   const note = document.querySelector("#apart-note");
-  if (d.locked) {
-    note.textContent = "Dissection #" + id + " is interlocked. No piece slides free, so there is no burst.";
+  const kind = separation(d);
+  if (kind === "none") {
+    note.textContent = "Dissection #" + id + " cannot be separated at all. No group of pieces can be translated away along an axis, so there is no burst.";
+  } else if (kind === "group") {
+    note.textContent = "Dissection #" + id + ": no single piece slides free. A pair can leave together, and then the rest separates. The burst is only drawn for the 38 where one piece slides out.";
   } else if (pattern === BURST_Y) {
     note.textContent = "All eight leave at once. Two pieces to each of the four sides. Nothing up or down.";
   } else {
@@ -94,7 +97,9 @@ loadData().then((d) => {
   for (const cube of data.cubes) {
     const opt = document.createElement("option");
     opt.value = String(cube.id);
-    opt.textContent = "#" + cube.id + (cube.locked ? " — interlocked" : cube.nfree === 2 ? " — two ways" : " — comes apart");
+    const kind = separation(cube);
+    const tag = kind === "none" ? " — cannot be separated" : kind === "group" ? " — a group moves first" : cube.nfree === 2 ? " — two ways" : " — a piece slides out";
+    opt.textContent = "#" + cube.id + tag;
     sel.append(opt);
   }
   viewer = mountViewer(document.querySelector("#stage"));

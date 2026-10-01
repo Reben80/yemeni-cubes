@@ -1,4 +1,4 @@
-import { loadData, PIECE_COLORS, outsideTwin, twinRelation, isExtruded } from "./data.js";
+import { loadData, PIECE_COLORS, outsideTwin, twinRelation, isExtruded, separation, separationLabel } from "./data.js";
 import { mountViewer } from "./view.js";
 import { renderLayers, renderNet, renderLegend } from "./faces.js";
 
@@ -10,8 +10,9 @@ let current = null;
 const FILTERS = [
   ["twice", (d) => d.twin != null],
   ["printset", (d) => twinRelation(d.id) === "rotation"],
-  ["apart", (d) => !d.locked],
-  ["locked", (d) => d.locked],
+  ["apart", (d) => separation(d) === "single"],
+  ["group", (d) => separation(d) === "group"],
+  ["fused", (d) => separation(d) === "none"],
   ["outside", (d) => outsideTwin(d.id) != null],
   ["flat", (d) => isExtruded(d.id)],
   ["two", (d) => d.nfree === 2],
@@ -46,9 +47,7 @@ function mini(grid) {
 
 function blurb(d) {
   const bits = ["S" + d.shape];
-  if (d.locked) bits.push("interlocked");
-  else if (d.nfree === 2) bits.push("opens two ways");
-  else bits.push("comes apart");
+  bits.push(separationLabel(d));
   if (d.twin != null) bits.push("twin #" + d.twin);
   return bits.join(" · ");
 }
@@ -80,6 +79,16 @@ function stat(label, value) {
   return li;
 }
 
+function takingApart(d) {
+  const kind = separation(d);
+  if (kind === "single") {
+    const ways = d.nfree === 2 ? "yes, two ways (" + d.freeNames.join(", ") + ")" : "yes, " + d.freeNames.join(", ");
+    return ways + ". The whole cube then comes apart.";
+  }
+  if (kind === "group") return "no single piece slides free. A pair can leave together, and then the rest separates.";
+  return "cannot be separated at all, by any straight axis motion of any subset.";
+}
+
 function fillStats(d) {
   const ul = document.querySelector("#stats");
   ul.replaceChildren();
@@ -89,7 +98,7 @@ function fillStats(d) {
     stat("Cycle rank", d.rank === 0 ? "0 — a tree" : String(d.rank)),
     stat("Bounding box", d.bbox.join("×")),
     stat("Condition 6", d.thin ? "no 2×2×1 slab" : "has a 2×2×1 slab"),
-    stat("Comes apart", d.locked ? "no — interlocked" : (d.nfree === 2 ? "yes, two ways (" + d.freeNames.join(", ") + ")" : "yes, " + d.freeNames.join(", ")))
+    stat("Taking apart", takingApart(d))
   );
   const rel = twinRelation(d.id);
   if (d.twin != null) {
@@ -123,7 +132,7 @@ function fillStats(d) {
   const apart = document.createElement("a");
   apart.className = "button";
   apart.href = "apart.html#" + d.id;
-  apart.textContent = d.locked ? "This one stays locked" : "Watch it come apart";
+  apart.textContent = separation(d) === "single" ? "Watch it come apart" : separationLabel(d);
   actions.append(apart);
   const print = document.createElement("a");
   print.className = "button";

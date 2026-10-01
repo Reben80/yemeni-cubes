@@ -1,4 +1,4 @@
-import { loadData, OUTSIDE_PAIRS, TWIN_RELATION, APART_PRINTABLE, outsideTwin, twinRelation } from "./data.js";
+import { loadData, OUTSIDE_PAIRS, TWIN_RELATION, APART_PRINTABLE, outsideTwin, twinRelation, separationLabel } from "./data.js";
 import { mountViewer } from "./view.js";
 import { renderLayers, renderNet, renderLegend } from "./faces.js";
 
@@ -31,7 +31,7 @@ function paint() {
     "Shape S" + d.shape,
     "surface " + d.surface,
     d.rank === 0 ? "cycle rank 0 — a tree" : "cycle rank " + d.rank,
-    d.locked ? "interlocked" : "comes apart",
+    separationLabel(d),
   ];
   if (!isOutside) {
     const rel = twinRelation(id);

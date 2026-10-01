@@ -75,6 +75,22 @@ export const PRINTABLE_PAIRS = [
 
 export const APART_PRINTABLE = [[8, 24], [25, 44], [53, 57]];
 
+/** No subset can be translated away along an axis. The other locked cubes can: a pair leaves first. */
+export const INSEPARABLE = new Set([16, 34, 47, 48, 55, 59, 61, 64, 65]);
+
+/** single: one piece slides out. group: a pair leaves first. none: no subset translates away. */
+export function separation(d) {
+  if (!d.locked) return "single";
+  return INSEPARABLE.has(d.id) ? "none" : "group";
+}
+
+export function separationLabel(d) {
+  const kind = separation(d);
+  if (kind === "single") return d.nfree === 2 ? "opens two ways" : "a piece slides out";
+  if (kind === "group") return "a group moves first";
+  return "cannot be separated";
+}
+
 export function twinRelation(id) {
   return TWIN_RELATION[id] ?? null;
 }

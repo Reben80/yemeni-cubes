@@ -144,7 +144,7 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .band {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   margin: 2.2rem 0;
@@ -323,7 +323,7 @@ select {
   .stage, .burst-layout .stage { min-height: 58vh; }
   .band { grid-template-columns: 1fr 1fr; }
   .band div:nth-child(odd) { border-right: 1px solid var(--line); }
-  .band div:nth-child(1), .band div:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .band div:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
   .site-head { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .hero-copy { padding: 0; }
 }
